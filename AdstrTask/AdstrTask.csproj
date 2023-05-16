@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-AdstrTask-02e47e31-ac9f-42b6-a799-356d0f0d83d2</UserSecretsId>
   </PropertyGroup>
