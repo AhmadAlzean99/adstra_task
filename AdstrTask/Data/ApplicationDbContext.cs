@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using AdstrTask.Data.Seed;
 
 namespace AdstrTask.Data
 {
@@ -8,6 +9,12 @@ namespace AdstrTask.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            Seeder.SeedIdentity(builder);
         }
     }
 }
