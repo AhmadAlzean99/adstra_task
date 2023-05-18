@@ -1,0 +1,23 @@
+﻿@model AdstrTask.ViewModel.ProfileViewModel
+
+@using AdstrTask.ViewModel
+
+<h2>Update Profile</h2>
+
+@using (Html.BeginForm("Update", "Profile", FormMethod.Post))
+{
+    <div>
+        <label>Username:</label>
+        @Html.TextBoxFor(model => model.UserName)
+    </div>
+    <div>
+        <label>Email:</label>
+        @Html.TextBoxFor(model => model.Email)
+    </div>
+    <div>
+        <label>Phone Number:</label>
+        @Html.TextBoxFor(model => model.PhoneNumber)
+    </div>
+
+    <button type="submit">Save</button>
+}

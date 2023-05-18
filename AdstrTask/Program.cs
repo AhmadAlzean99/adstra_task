@@ -1,6 +1,7 @@
 using AdstrTask.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,6 +40,22 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+app.MapControllerRoute(
+    name: "profile",
+    pattern: "Profile",
+    defaults: new { controller = "Profile", action = "Update" });
+app.MapControllerRoute(
+    name: "profile",
+    pattern: "Profile",
+    defaults: new { controller = "Dashboard", action = "Index" });
+app.MapControllerRoute(
+        name: "createAdmin",
+        pattern: "Dashboard/CreateAdmin",
+        defaults: new { controller = "Dashboard", action = "CreateAdmin" });
+
+
 app.MapRazorPages();
 
 app.Run();

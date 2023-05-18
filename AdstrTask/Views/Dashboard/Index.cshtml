@@ -1,0 +1,36 @@
+﻿@model AdstrTask.ViewModel.DashboardViewModel
+
+
+<h2>Dashboard</h2>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.Users)
+        {
+            <tr>
+                <td>@user.Name</td>
+                <td>@user.Email</td>
+                <td>@user.PhoneNumber</td>
+                <td>@user.Role</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="mb-4">
+    <h3>Create User</h3>
+    <a class="btn btn-primary" asp-action="CreateUser">Add User</a>
+</div>
+
+<div>
+    <h3>Create Admin</h3>
+    <a class="btn btn-primary" asp-action="CreateAdmin">Add Admin</a>
+</div>

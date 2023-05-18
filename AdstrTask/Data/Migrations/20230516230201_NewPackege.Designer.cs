@@ -4,6 +4,7 @@ using AdstrTask.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AdstrTask.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230516230201_NewPackege")]
+    partial class NewPackege
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,13 +54,13 @@ namespace AdstrTask.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "74188461-6878-4ca0-8f94-b58edd191d7b",
+                            Id = "4b08d258-e734-4761-8482-8e8ae83000b6",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "416e0f8f-73f7-4ead-96f8-8fa072629464",
+                            Id = "7fb5ec32-ab1a-4bd6-8bd5-8834016a695b",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -155,17 +158,17 @@ namespace AdstrTask.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "112fa4fd-6ce3-4199-b025-9c8ca0caf081",
+                            Id = "8bb4b75a-2e0d-4bb4-a376-4d3799ab4d69",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "22d35a63-2f8e-4af6-b21a-eab42846b359",
+                            ConcurrencyStamp = "d181fb77-d94f-4d23-9c00-48c49a641db3",
                             Email = "Ahmadalzean22@com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "AHMADALZEAN22@COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJRRdLtdVqNkF+0tyKw32ZknHdiqqtjD1ks9WuBndMuED+5aSwxbz9bKwQU9CeAskg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEHYHlFKt/NWDVq1TSOBnuXWffPOBAR1BgakfTPoKsyH13TCxXYNUvFeslMGNGG6+tQ==",
                             PhoneNumber = "+111111111111",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "83403c3b-7e05-40bc-b05f-16bc9368a808",
+                            SecurityStamp = "8dd0bb69-a5b7-4d6a-b903-c92982db0303",
                             TwoFactorEnabled = false,
                             UserName = "Ahmadalzean22@com"
                         });
@@ -237,8 +240,8 @@ namespace AdstrTask.Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "112fa4fd-6ce3-4199-b025-9c8ca0caf081",
-                            RoleId = "74188461-6878-4ca0-8f94-b58edd191d7b"
+                            UserId = "8bb4b75a-2e0d-4bb4-a376-4d3799ab4d69",
+                            RoleId = "4b08d258-e734-4761-8482-8e8ae83000b6"
                         });
                 });
 
