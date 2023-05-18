@@ -1,4 +1,5 @@
-﻿using AdstrTask.ViewModel;
+﻿using AdstrTask.Constants;
+using AdstrTask.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -42,6 +43,11 @@ namespace AdstrTask.Controllers
             return View();
         }
 
+        public IActionResult CreateAdmin()
+        {
+            return View();
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateUser(UserViewModel model)
         {
@@ -54,11 +60,11 @@ namespace AdstrTask.Controllers
                     PhoneNumber = model.PhoneNumber
                 };
 
-                var result = await _userManager.CreateAsync(user, (string)model.Password);
+                var result = await _userManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded)
                 {
-                    await _userManager.AddToRoleAsync(user, "User");
+                    await _userManager.AddToRoleAsync(user, AdstrTechStrings.Roles.User);
 
                     return RedirectToAction("Index");
                 }
@@ -77,12 +83,6 @@ namespace AdstrTask.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (string.IsNullOrEmpty((string)model.Password))
-                {
-                    ModelState.AddModelError(string.Empty, "Password is required.");
-                    return View(model);
-                }
-
                 var user = new IdentityUser
                 {
                     UserName = model.Email,
@@ -90,11 +90,11 @@ namespace AdstrTask.Controllers
                     PhoneNumber = model.PhoneNumber
                 };
 
-                var result = await _userManager.CreateAsync(user,(string) model.Password);
+                var result = await _userManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded)
                 {
-                    await _userManager.AddToRoleAsync(user, "Admin");
+                    await _userManager.AddToRoleAsync(user, AdstrTechStrings.Roles.Admin);
                     return RedirectToAction("Index");
                 }
 
