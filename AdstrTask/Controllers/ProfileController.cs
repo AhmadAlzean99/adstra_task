@@ -38,12 +38,10 @@ namespace AdstrTask.Controllers
 
                     if (result.Succeeded)
                     {
-                        // تم تحديث بيانات المستخدم بنجاح
                         return RedirectToAction("Index");
                     }
                     else
                     {
-                        // حدث خطأ أثناء تحديث بيانات المستخدم
                         foreach (var error in result.Errors)
                         {
                             ModelState.AddModelError("", error.Description);
@@ -52,12 +50,10 @@ namespace AdstrTask.Controllers
                 }
                 else
                 {
-                    // المستخدم غير موجود
                     ModelState.AddModelError("", "User not found.");
                 }
             }
 
-            // إعادة عرض الصفحة في حالة وجود أخطاء في الإدخال
             return View(model);
         }
     }
